@@ -9,7 +9,7 @@ Hoy vamos a hablar de GraphQL, no solo como una tecnología, sino como una forma
 
 ---
 
-## El problema de las APIs tradicionales
+## El problema de las APIs tradicionales 
 
 Las APIs REST han sido durante muchos años el estándar para comunicar frontend y backend. Son simples, conocidas y funcionan muy bien en muchos contextos. Sin embargo, cuando las aplicaciones crecen, empiezan a aparecer ciertas limitaciones.
 
