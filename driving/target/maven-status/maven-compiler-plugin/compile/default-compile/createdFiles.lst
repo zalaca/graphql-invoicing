@@ -1,0 +1,6 @@
+com/conferences/invoicing/driving/resolvers/invoice/InvoiceQueryController.class
+com/conferences/invoicing/driving/resolvers/invoice/fieldOrchestrations/CustomerFieldBatchResolver.class
+com/conferences/invoicing/driving/adapters/InvoiceControllerAdapter.class
+com/conferences/invoicing/driving/resolvers/invoice/fieldOrchestrations/InvoiceFieldResolver.class
+com/conferences/invoicing/driving/resolvers/invoice/fieldOrchestrations/InvoiceFieldBatchResolver.class
+com/conferences/invoicing/driving/cache/InvoiceCache.class

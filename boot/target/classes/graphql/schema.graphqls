@@ -1,0 +1,79 @@
+enum InvoiceStatus {
+  DRAFT
+  ISSUED
+  PAID
+  CANCELLED
+}
+
+scalar Date
+scalar BigDecimal
+scalar BigInteger
+scalar Money
+
+type Customer {
+  id: String
+  name: String
+  email: String
+  vatNumber: String
+  addresses: [Address!]!
+}
+
+type InvoiceLine {
+  id: String
+  description: String
+  amount: BigDecimal
+}
+
+type Invoice {
+  id: String
+  invoiceNumber: String
+  customer: Customer
+  issueDate: Date
+  dueDate: Date
+  status: InvoiceStatus
+  lines: [InvoiceLine]
+  addresses: [Address]
+  total: BigDecimal
+  totalMoney: Money!
+}
+
+type Address {
+  id: ID!
+  boundaries: [BigInteger]
+}
+
+type Warehouse {
+  id: String
+  name: String
+  boundaries: [String]
+}
+
+type InvoiceWithAvailableWarehouses {
+  id: String
+  invoiceNumber: String
+  warehouses: [Warehouse]
+}
+
+type InvoiceConnection {
+  edges: [InvoiceEdge]
+  pageInfo: PageInfo!
+}
+
+type InvoiceEdge {
+  cursor: String!
+  node: Invoice!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type Query {
+  getAllInvoices: [Invoice]
+  getInvoices(first: Int, after: String): InvoiceConnection
+  getInvoiceById(id: String!): Invoice
+  getCustomInvoices(ids: [ID!]!): [Invoice!]!
+}

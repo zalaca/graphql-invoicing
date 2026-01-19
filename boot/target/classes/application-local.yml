@@ -1,0 +1,24 @@
+spring:
+    flyway:
+        locations: classpath:db/migration
+        enabled: true
+        baseline-on-migrate: true
+        baseline-version: 0
+
+    cloud:
+        gcp:
+            sql:
+                enabled: false
+
+    datasource:
+        url: ${LOCAL_DB_URL}
+        driver-class-name: org.postgresql.Driver
+        username: ${LOCAL_DB_USER}
+        password: ${LOCAL_DB_PASSWORD}
+
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        hibernate.ddl-auto: create
+        generate-ddl: false
+        show-sql: true
+        open-in-view: true

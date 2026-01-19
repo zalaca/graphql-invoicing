@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: graph-ql-invoicing
+
+  flyway:
+    enabled: true
+    locations: classpath:migration/versions
+    user: ${FLYWAY_DATABASE_USERNAME}
+    password: ${FLYWAY_DATABASE_PASSWORD}
+    baseline-on-migrate: true
+    baseline-version: 0
+
+  datasource:
+    url: ${LOCAL_DB_URL}
+    driver-class-name: org.postgresql.Driver
+    username: ${FLYWAY_DATABASE_USERNAME}
+    password: ${FLYWAY_DATABASE_PASSWORD}
+
+  jpa:
+    open-in-view: true
+
+# Actuator endpoints configuration
+management:
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: [ info, health, metrics, prometheus ]
+
+server:
+  port: 8080

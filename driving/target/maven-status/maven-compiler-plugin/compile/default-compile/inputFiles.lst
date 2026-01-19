@@ -1,0 +1,6 @@
+/Users/jzalacai/Documents/PROYECTOS/VARIOS/graph-ql-invoicing/driving/src/main/java/com/conferences/invoicing/driving/adapters/InvoiceControllerAdapter.java
+/Users/jzalacai/Documents/PROYECTOS/VARIOS/graph-ql-invoicing/driving/src/main/java/com/conferences/invoicing/driving/cache/InvoiceCache.java
+/Users/jzalacai/Documents/PROYECTOS/VARIOS/graph-ql-invoicing/driving/src/main/java/com/conferences/invoicing/driving/resolvers/invoice/InvoiceQueryController.java
+/Users/jzalacai/Documents/PROYECTOS/VARIOS/graph-ql-invoicing/driving/src/main/java/com/conferences/invoicing/driving/resolvers/invoice/fieldOrchestrations/CustomerFieldBatchResolver.java
+/Users/jzalacai/Documents/PROYECTOS/VARIOS/graph-ql-invoicing/driving/src/main/java/com/conferences/invoicing/driving/resolvers/invoice/fieldOrchestrations/InvoiceFieldResolver.java
+/Users/jzalacai/Documents/PROYECTOS/VARIOS/graph-ql-invoicing/driving/src/main/java/com/conferences/invoicing/driving/resolvers/invoice/fieldOrchestrations/InvoiceFieldBatchResolver.java

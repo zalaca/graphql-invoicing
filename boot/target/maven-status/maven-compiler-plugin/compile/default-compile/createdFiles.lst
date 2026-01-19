@@ -1,0 +1,7 @@
+com/conferences/invoicing/configs/SecurityGraphQlInterceptor.class
+com/conferences/invoicing/configs/GraphQLScalarConfig$1.class
+com/conferences/invoicing/configs/SecurityConfig.class
+com/conferences/invoicing/configs/TokenAuthenticationFilter.class
+com/conferences/invoicing/configs/GraphQLScalarConfig.class
+com/conferences/invoicing/configs/GraphQLPaginationConfig.class
+com/conferences/invoicing/Application.class
