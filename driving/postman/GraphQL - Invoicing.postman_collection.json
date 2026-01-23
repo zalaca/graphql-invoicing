@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"invoiceNumber\": \"INV-2024-001\",\n  \"customerId\": \"CUST-123\",\n  \"issueDate\": \"2024-12-01\",\n  \"dueDate\": \"2024-12-31\",\n  \"lines\": [\n    {\n      \"description\": \"Conference ticket\",\n      \"quantity\": 2,\n      \"amount\": 199.99\n    },\n    {\n      \"description\": \"Workshop access\",\n      \"quantity\": 1,\n      \"amount\": 99.99\n    }\n  ]\n}\n",
+					"raw": "{\n  \"invoiceNumber\": \"INV-2024-01278\",\n  \"customerId\": \"CUST-1234589\",\n  \"issueDate\": \"2024-12-01\",\n  \"dueDate\": \"2024-12-31\",\n  \"lines\": [\n    {\n      \"description\": \"Conference ticket\",\n      \"quantity\": 2,\n      \"amount\": 199.99\n    },\n    {\n      \"description\": \"Workshop access\",\n      \"quantity\": 1,\n      \"amount\": 99.99\n    }\n  ]\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -67,11 +67,21 @@
 		{
 			"name": "Get all invoices with {id, total}",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "user-token",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"query\": \"{ getAllInvoices { id total } }\"\n}",
+					"raw": "{\n    \"query\": \"{ getAllInvoices { id total totalMoney } }\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -95,6 +105,16 @@
 		{
 			"name": "Get all invoices with complex projection",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "admin-token",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -123,6 +143,16 @@
 		{
 			"name": "Get specific invoice",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "admin-token",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -184,6 +214,34 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\n  \"query\": \"query { getCustomInvoices(ids: [\\\"1\\\", \\\"2\\\", \\\"3\\\"]) { id customer { id name } } }\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get invoices paginated",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"query\": \"query { getInvoices(first: 1, after: \\\"T18x\\\") { edges { cursor node { id invoiceNumber customer { id name addresses { boundaries } } lines { amount } addresses { boundaries } } } pageInfo { hasNextPage endCursor } } }\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
